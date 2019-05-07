@@ -27,7 +27,7 @@ class UsersController extends Controller {
 			}
 		}
 		
-		$user->update($request->all());
+		$user->update($data);
 		return redirect()->route('users.show', $user->id)->with('success', '更新成功');
 	}
 }
