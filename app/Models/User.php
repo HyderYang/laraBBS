@@ -19,6 +19,8 @@ class User extends Authenticatable implements MustVerifyEmailContract{
 		'name',
 		'email',
 		'password',
+		'avatar',
+		'introduction'
 	];
 	/**
 	 * The attributes that should be hidden for arrays.
