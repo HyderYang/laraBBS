@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @method static where(string $string, $id)
+ */
 class Topic extends Model {
 	
 	protected $fillable = [
