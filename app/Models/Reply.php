@@ -13,4 +13,8 @@ class Reply extends Model {
 	public function user() {
 		return $this->belongsTo(User::class);
 	}
+	
+	public function scopeRecent($query) {
+		return $query->orderBy('id', 'desc');
+	}
 }
