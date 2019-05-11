@@ -39,5 +39,12 @@ class UsersTableSeeder extends Seeder {
 		$user->avatar = 'http://bbs.io/uploads/images/avatars/201905/07/1_1557218579_5pxuDuhXkm.jpeg';
 		$user->save();
 		
+		// 初始化用户角色，将 1 号用户指派为『站长』
+		$user->assignRole('Founder');
+		
+		// 将 2 号用户指派为『管理员』
+		$user = User::find(2);
+		$user->assignRole('Maintainer');
+		
 	}
 }
