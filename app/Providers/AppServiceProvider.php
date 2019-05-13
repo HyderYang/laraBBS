@@ -12,7 +12,9 @@ class AppServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register() {
-		//
+		if (app()->isLocal()) {
+			$this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
+		}
 	}
 	
 	/**
