@@ -140,7 +140,9 @@ return [
 	| authenticate an incoming API request.
 	|
 	*/
-	'auth' => [],
+	'auth' => [
+		'jwt' => 'Dingo\Api\Auth\Provider\JWT',
+	],
 	/*
 	|--------------------------------------------------------------------------
 	| Throttling / Rate Limiting

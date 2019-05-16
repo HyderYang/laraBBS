@@ -7,8 +7,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements MustVerifyEmailContract {
+class User extends Authenticatable implements MustVerifyEmailContract, JWTSubject {
 	
 	use MustVerifyEmailTrait;
 	protected $fillable = [
@@ -60,5 +61,13 @@ class User extends Authenticatable implements MustVerifyEmailContract {
 		$this->notification_count = 0;
 		$this->save();
 		$this->unreadNotifications->markAsRead();
+	}
+	
+	public function getJWTIdentifier() {
+		return $this->getKey();
+	}
+
+	public function getJWTCustomClaims() {
+		return [];
 	}
 }
